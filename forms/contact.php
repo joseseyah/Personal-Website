@@ -2,7 +2,7 @@
 if (isset($_POST['email'])) {
 
     $email_to = "joseph.hayes003@gmail.com";
-    $email_subject = "New Website Email";
+    $email_subject = "Contacting Joseph Hayes";
 
     function problem($error)
     {
@@ -74,7 +74,7 @@ if (isset($_POST['email'])) {
         <p class="lead"><strong>We have received your message and will get back to you shortly.</p>
         <hr>
         <p class="lead">
-            <a class="btn btn-primary btn-sm" href="index.html" role="button">Continue to homepage</a>
+            <a class="btn btn-primary btn-sm" href="contact.html" role="button">Continue to homepage</a>
         </p>
     </div>
 
