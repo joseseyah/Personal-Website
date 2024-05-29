@@ -55,42 +55,76 @@
         <div class="container-custom mb-5">
             <h1 class="header">Rotaguru</h1>
             <h2 class="header mt-4">Interactive Rota Generator</h2>
-            <p class="text-center">Use the form below to generate a sample rota:</p>
-            <form id="rotaForm">
-                <div class="form-group">
-                    <label for="placeId">Place ID</label>
-                    <input type="text" class="form-control" id="placeId" placeholder="Enter place ID" required>
-                </div>
-                <div class="form-group">
-                    <label for="representativeId">Representative ID</label>
-                    <input type="text" class="form-control" id="representativeId" placeholder="Enter representative ID" required>
-                </div>
-                <div class="form-group">
-                    <label for="fromDate">From Date</label>
-                    <input type="date" class="form-control" id="fromDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="repeat">Repeat Every (x)</label>
-                    <input type="number" class="form-control" id="repeat" value="0" required>
-                </div>
-                <div class="form-group">
-                    <label for="visitTime">Visit Time</label>
-                    <input type="time" class="form-control" id="visitTime" required>
-                </div>
-                <div class="form-group">
-                    <label for="duration">Duration (in minutes)</label>
-                    <input type="number" class="form-control" id="duration" value="540" required>
-                </div>
-                <div class="form-group">
-                    <label for="taskType">Task Type</label>
-                    <input type="text" class="form-control" id="taskType" placeholder="Enter task type" required>
-                </div>
-                <div class="form-group">
-                    <label for="taskDescription">Task Description</label>
-                    <input type="text" class="form-control" id="taskDescription" placeholder="Enter task description" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Generate Rota</button>
-            </form>
+            <p class="text-center">Press the button below to generate a new rota based on the dummy data:</p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Place ID</th>
+                            <th>Representative ID</th>
+                            <th>From Date</th>
+                            <th>Repeat Every (x)</th>
+                            <th>Visit Time</th>
+                            <th>Duration (in minutes)</th>
+                            <th>Task Type</th>
+                            <th>Task Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dummyData">
+                        <tr>
+                            <td>O10POS05</td>
+                            <td>147305</td>
+                            <td>11/27/2023</td>
+                            <td>0</td>
+                            <td>09:00</td>
+                            <td>540</td>
+                            <td>form</td>
+                            <td>12.Break Log(GB)</td>
+                        </tr>
+                        <tr>
+                            <td>O10POS05</td>
+                            <td>146567</td>
+                            <td>11/27/2023</td>
+                            <td>0</td>
+                            <td>09:00</td>
+                            <td>540</td>
+                            <td>form</td>
+                            <td>12.Break Log(GB)</td>
+                        </tr>
+                        <tr>
+                            <td>O10POS05</td>
+                            <td>24804943</td>
+                            <td>11/27/2023</td>
+                            <td>0</td>
+                            <td>13:30</td>
+                            <td>540</td>
+                            <td>form</td>
+                            <td>12.Break Log(GB)</td>
+                        </tr>
+                        <tr>
+                            <td>O10POS05</td>
+                            <td>146567</td>
+                            <td>11/28/2023</td>
+                            <td>0</td>
+                            <td>13:30</td>
+                            <td>540</td>
+                            <td>form</td>
+                            <td>12.Break Log(GB)</td>
+                        </tr>
+                        <tr>
+                            <td>O10POS05</td>
+                            <td>24804943</td>
+                            <td>11/28/2023</td>
+                            <td>0</td>
+                            <td>09:30</td>
+                            <td>540</td>
+                            <td>form</td>
+                            <td>12.Break Log(GB)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button id="generateBtn" class="btn btn-primary btn-block mt-3">Generate Rota</button>
             <div class="mt-4" id="rotaResult"></div>
         </div>
 
@@ -140,20 +174,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('rotaForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Gather form values
-            const placeId = document.getElementById('placeId').value;
-            const representativeId = document.getElementById('representativeId').value;
-            const fromDate = document.getElementById('fromDate').value;
-            const repeat = document.getElementById('repeat').value;
-            const visitTime = document.getElementById('visitTime').value;
-            const duration = document.getElementById('duration').value;
-            const taskType = document.getElementById('taskType').value;
-            const taskDescription = document.getElementById('taskDescription').value;
-
-            // Create table row by row
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            // Gather dummy data from the table
+            const table = document.getElementById('dummyData');
             let tableHTML = `
                 <table class="table table-striped mt-4">
                     <thead>
@@ -171,17 +194,18 @@
                     <tbody>
             `;
 
-            for (let i = 0; i < 5; i++) { // Adjust the number of rows as needed
+            for (let i = 0; i < table.rows.length; i++) {
+                const row = table.rows[i];
                 tableHTML += `
                     <tr>
-                        <td>${placeId}</td>
-                        <td>${representativeId}</td>
-                        <td>${fromDate}</td>
-                        <td>${repeat}</td>
-                        <td>${visitTime}</td>
-                        <td>${duration}</td>
-                        <td>${taskType}</td>
-                        <td>${taskDescription}</td>
+                        <td>${row.cells[0].textContent}</td>
+                        <td>${row.cells[1].textContent}</td>
+                        <td>${row.cells[2].textContent}</td>
+                        <td>${row.cells[3].textContent}</td>
+                        <td>${row.cells[4].textContent}</td>
+                        <td>${row.cells[5].textContent}</td>
+                        <td>${row.cells[6].textContent}</td>
+                        <td>${row.cells[7].textContent}</td>
                     </tr>
                 `;
             }
