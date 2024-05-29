@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rotaguru - Privacy Policy & Terms of Service</title>
+    <title>Rotaguru - Rota Generator</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #FFEB3B; /* Same yellow as in the logo */
-            color: #000000;
+            background-color: #f8f9fa; /* Light grey background */
+            color: #333333;
             font-family: 'Arial', sans-serif;
         }
         .container-custom {
@@ -20,19 +20,32 @@
             margin: 20px;
         }
         .header {
-            color: #FFEB3B;
-            background-color: #003366;
+            color: #ffffff;
+            background-color: #007bff; /* Bootstrap primary blue */
             padding: 10px;
             border-radius: 10px;
             text-align: center;
         }
+        .footer {
+            background-color: #343a40; /* Dark grey */
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
         a {
-            color: #003366;
+            color: #007bff; /* Bootstrap primary blue */
             text-decoration: none;
             font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
+        }
+        .accordion .card-header {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .accordion .card-body {
+            background-color: #f1f1f1;
         }
     </style>
 </head>
@@ -45,16 +58,36 @@
             <p class="text-center">Use the form below to generate a sample rota:</p>
             <form id="rotaForm">
                 <div class="form-group">
-                    <label for="employeeName">Employee Name</label>
-                    <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name" required>
+                    <label for="placeId">Place ID</label>
+                    <input type="text" class="form-control" id="placeId" placeholder="Enter place ID" required>
                 </div>
                 <div class="form-group">
-                    <label for="startTime">Start Time</label>
-                    <input type="time" class="form-control" id="startTime" required>
+                    <label for="representativeId">Representative ID</label>
+                    <input type="text" class="form-control" id="representativeId" placeholder="Enter representative ID" required>
                 </div>
                 <div class="form-group">
-                    <label for="endTime">End Time</label>
-                    <input type="time" class="form-control" id="endTime" required>
+                    <label for="fromDate">From Date</label>
+                    <input type="date" class="form-control" id="fromDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="repeat">Repeat Every (x)</label>
+                    <input type="number" class="form-control" id="repeat" value="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="visitTime">Visit Time</label>
+                    <input type="time" class="form-control" id="visitTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (in minutes)</label>
+                    <input type="number" class="form-control" id="duration" value="540" required>
+                </div>
+                <div class="form-group">
+                    <label for="taskType">Task Type</label>
+                    <input type="text" class="form-control" id="taskType" placeholder="Enter task type" required>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Task Description</label>
+                    <input type="text" class="form-control" id="taskDescription" placeholder="Enter task description" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Generate Rota</button>
             </form>
@@ -62,75 +95,44 @@
         </div>
 
         <!-- FAQ Section -->
-        <div class="accordion mb-5" id="faqAccordion">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            How does Rotaguru use my data?
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-                    <div class="card-body">
-                        Rotaguru uses your data to generate automated rotas based on the information you provide. Your data is stored securely and is not shared with third parties.
+        <div class="container-custom mb-5">
+            <h2 class="header">FAQs</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How does Rotaguru use my data?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Rotaguru uses your data to generate automated rotas based on the information you provide. Your data is stored securely and is not shared with third parties.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            How does Rotaguru enhance user functionality?
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-                    <div class="card-body">
-                        Rotaguru automates the creation of rotas, saving you time and reducing errors. It allows for easy adjustments and provides a clear overview of schedules.
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How does Rotaguru enhance user functionality?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Rotaguru automates the creation of rotas, saving you time and reducing errors. It allows for easy adjustments and provides a clear overview of schedules.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Privacy Policy and Terms of Service -->
-        <div class="container-custom">
-            <h2 class="header">Privacy Policy</h2>
-            <p>Your privacy is important to us. It is Rotaguru's policy to respect your privacy regarding any information we may collect from you across our website, <a href="https://www.rotaguru.com">https://www.rotaguru.com</a>, and other sites we own and operate.</p>
-            <p>We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.</p>
-            <p>We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.</p>
-            <p>We don’t share any personally identifying information publicly or with third-parties, except when required to by law.</p>
-            <p>Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.</p>
-            <p>You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.</p>
-            <p>Your continued use of our website will be regarded as acceptance of our practices around privacy and personal information. If you have any questions about how we handle user data and personal information, feel free to contact us.</p>
-            <p>This policy is effective as of 1 January 2024.</p>
-
-            <h2 class="header mt-4">Terms of Service</h2>
-            <p>Welcome to Rotaguru. These terms and conditions outline the rules and regulations for the use of Rotaguru's Website.</p>
-            <p>By accessing this website we assume you accept these terms and conditions in full. Do not continue to use Rotaguru's website if you do not accept all of the terms and conditions stated on this page.</p>
-            <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and any or all Agreements: "Client", "You" and "Your" refers to you, the person accessing this website and accepting the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves, or either the Client or ourselves.</p>
-            <p>All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner, whether by formal meetings of a fixed duration, or any other means, for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services/products, in accordance with and subject to, prevailing law of . Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
-            <p>We employ the use of cookies. By using Rotaguru's website you consent to the use of cookies in accordance with Rotaguru’s privacy policy.</p>
-            <p>Unless otherwise stated, Rotaguru and/or its licensors own the intellectual property rights for all material on Rotaguru. All intellectual property rights are reserved. You may view and/or print pages from http://www.rotaguru.com for your own personal use subject to restrictions set in these terms and conditions.</p>
-            <p>You must not:</p>
-            <ul>
-                <li>Republish material from http://www.rotaguru.com</li>
-                <li>Sell, rent or sub-license material from http://www.rotaguru.com</li>
-                <li>Reproduce, duplicate or copy material from http://www.rotaguru.com</li>
-                <li>Redistribute content from Rotaguru (unless content is specifically made for redistribution).</li>
-            </ul>
-            <p>This Agreement shall begin on the date hereof.</p>
-            <p>Parts of this website offer an opportunity for users to post and exchange opinions, information, material and data ('Comments') in areas of the website. Rotaguru does not screen, edit, publish or review Comments prior to their appearance on the website and Comments do not reflect the views or opinions of Rotaguru, its agents or affiliates. Comments reflect the view and opinion of the person who posts such view or opinion. To the extent permitted by applicable laws Rotaguru shall not be responsible or liable for the Comments or for any loss cost, liability, damages or expenses caused and or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
-            <p>Rotaguru reserves the right to monitor all Comments and to remove any Comments which it considers in its absolute discretion to be inappropriate, offensive or otherwise in breach of these Terms and Conditions.</p>
-            <p>You warrant and represent that:</p>
-            <ul>
-                <li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</li>
-                <li>The Comments do not infringe any intellectual property right, including without limitation copyright, patent or trademark, or other proprietary right of any third party;</li>
-                <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material or material which is an invasion of privacy;</li>
-                <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
-            </ul>
-            <p>You hereby grant to Rotaguru a non-exclusive royalty-free license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
-        </div>
+        <!-- Footer with links -->
+        <footer class="footer">
+            <a href="#privacyPolicy">Privacy Policy</a> | <a href="#termsOfService">Terms of Service</a>
+        </footer>
     </div>
 
     <!-- Bootstrap and JavaScript Libraries -->
@@ -140,16 +142,57 @@
     <script>
         document.getElementById('rotaForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const employeeName = document.getElementById('employeeName').value;
-            const startTime = document.getElementById('startTime').value;
-            const endTime = document.getElementById('endTime').value;
-            const rotaResult = document.getElementById('rotaResult');
-            rotaResult.innerHTML = `
-                <h3 class="header">Generated Rota</h3>
-                <p><strong>Employee Name:</strong> ${employeeName}</p>
-                <p><strong>Start Time:</strong> ${startTime}</p>
-                <p><strong>End Time:</strong> ${endTime}</p>
+
+            // Gather form values
+            const placeId = document.getElementById('placeId').value;
+            const representativeId = document.getElementById('representativeId').value;
+            const fromDate = document.getElementById('fromDate').value;
+            const repeat = document.getElementById('repeat').value;
+            const visitTime = document.getElementById('visitTime').value;
+            const duration = document.getElementById('duration').value;
+            const taskType = document.getElementById('taskType').value;
+            const taskDescription = document.getElementById('taskDescription').value;
+
+            // Create table row by row
+            let tableHTML = `
+                <table class="table table-striped mt-4">
+                    <thead>
+                        <tr>
+                            <th>Place ID</th>
+                            <th>Representative ID</th>
+                            <th>From Date</th>
+                            <th>Repeat Every (x)</th>
+                            <th>Visit Time</th>
+                            <th>Duration (in minutes)</th>
+                            <th>Task Type</th>
+                            <th>Task Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
             `;
+
+            for (let i = 0; i < 5; i++) { // Adjust the number of rows as needed
+                tableHTML += `
+                    <tr>
+                        <td>${placeId}</td>
+                        <td>${representativeId}</td>
+                        <td>${fromDate}</td>
+                        <td>${repeat}</td>
+                        <td>${visitTime}</td>
+                        <td>${duration}</td>
+                        <td>${taskType}</td>
+                        <td>${taskDescription}</td>
+                    </tr>
+                `;
+            }
+
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+
+            // Display the result
+            document.getElementById('rotaResult').innerHTML = tableHTML;
         });
     </script>
 </body>
