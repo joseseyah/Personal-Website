@@ -1,0 +1,65 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0A1B3D;  /* Dark Blue background */
+    color: white;
+    text-align: center;
+}
+
+header {
+    background-color: #08132E;  /* Slightly darker blue for header */
+    padding: 20px;
+    border-bottom: 2px solid #F3A446; /* Orange accent */
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #F3A446; /* Orange text for title */
+}
+
+main {
+    padding: 20px;
+}
+
+main section {
+    margin: 40px 0;
+}
+
+h2 {
+    font-size: 2em;
+    color: #F3A446; /* Orange headings */
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #D9E3F0; /* Light blue text for better readability */
+    padding: 0 20px;
+}
+
+footer {
+    background-color: #08132E;  /* Matching header color */
+    padding: 10px;
+    border-top: 2px solid #F3A446; /* Orange accent */
+}
+
+footer p {
+    font-size: 0.9em;
+    margin: 0;
+    color: #F3A446; /* Orange text for footer */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.6em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
