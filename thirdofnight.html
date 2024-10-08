@@ -3,70 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Third of Night</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #002832;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #004058;
-        }
-
-        h1, h2, h3 {
-            color: #ffffff;
-        }
-
-        p {
-            margin-bottom: 20px;
-        }
-
-        .highlight {
-            color: #ffcc00;
-            font-weight: bold;
-        }
-
-        .privacy-policy {
-            margin-top: 40px;
-            border-top: 1px solid #ffffff;
-            padding-top: 20px;
-        }
-
-        .privacy-policy h2 {
-            margin-bottom: 10px;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Night Prayers - About</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Third of Night</h1>
-        <p>Third of Night is an app designed to help Muslims track prayer times, particularly the last third of the night when special prayers are recommended.</p>
-        <p>The app uses your device's location to accurately determine prayer times based on your current location.</p>
-        <h2>How Third of Night Helps Muslims</h2>
-        <p>The app provides:</p>
-        <ul>
-            <li>Accurate prayer times based on your location.</li>
-            <li>Reminders for important prayer timings, such as Fajr and Maghrib.</li>
-            <li>Information about the last third of the night, a special time for supplication and reflection.</li>
-        </ul>
-        <h2>Privacy Policy</h2>
-        <p>Third of Night respects your privacy and only uses your location data to provide accurate prayer times. We do not collect or store any personal information.</p>
-        <p class="highlight">Your location data is used solely for the purpose of calculating prayer times and is not shared with any third parties.</p>
-    </div>
+    <header>
+        <h1>Night Prayers</h1>
+    </header>
 
-    <div class="container privacy-policy">
-        <h2>Privacy Policy</h2>
-        <p>Third of Night is committed to protecting your privacy. This Privacy Policy describes how your personal information is collected, used, and shared when you use our app.</p>
-        <p class="highlight">We do not collect or store any personal information. Your location data is only used to provide accurate prayer times and is not shared with any third parties.</p>
-    </div>
+    <main>
+        <section id="mission">
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to provide a simple, accurate, and ad-free prayer companion for Muslims worldwide. 
+                We aim to help users stay connected to their night worship, with a special focus on Midnight and 
+                the Last Third of the Night. The app is built to facilitate a smooth and spiritual end to the day 
+                by reciting Surah Al-Mulk and keeping track of the most blessed times of the night.
+            </p>
+        </section>
+
+        <section id="goals">
+            <h2>Application Goals</h2>
+            <p>
+                Night Prayers was created to address the need for a privacy-first, distraction-free application 
+                that focuses solely on providing accurate prayer times for Midnight and the Last Third of the Night. 
+                Our goal is to help Muslims strengthen their spiritual connection before sleep and maintain the 
+                important practice of reciting Surah Al-Mulk.
+            </p>
+        </section>
+
+        <section id="privacy-policy">
+            <h2>Privacy Policy</h2>
+            <p>
+                At Night Prayers, we prioritize your privacy. We collect minimal information, such as your city 
+                selection, to provide accurate prayer times. This data is stored securely in Firebase Firestore 
+                and is only used to improve the core functionality of the app. We do not share or sell your 
+                information to third parties. For donations, payment details are handled externally via Ko-fi.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Night Prayers. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-
