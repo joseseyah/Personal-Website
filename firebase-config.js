@@ -9,15 +9,15 @@ const firebaseConfig = {
     measurementId: "G-HQCTDJMLCG",
   };
   
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-  const storage = firebase.storage();
-  const auth = firebase.auth();
-  
-  // Debugging to verify Firebase services
-  console.log("Firebase initialized:", app);
-  console.log("Firestore instance:", db);
-  console.log("Storage instance:", storage);
-  console.log("Auth instance:", auth);
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
+const auth = firebase.auth();
+
+// Debugging to verify Firebase services
+console.log("Firebase initialized:", app);
+console.log("Firestore instance:", db);
+console.log("Storage instance:", storage);
+console.log("Auth instance:", auth);
   
