@@ -15,8 +15,8 @@ const firebaseConfig = {
   const storage = firebase.storage();
   const auth = firebase.auth();
   
-  // Debugging: Log Firebase instances to confirm they are initialized
-  console.log("Firebase App initialized:", app);
+  // Debugging to verify Firebase services
+  console.log("Firebase initialized:", app);
   console.log("Firestore instance:", db);
   console.log("Storage instance:", storage);
   console.log("Auth instance:", auth);
