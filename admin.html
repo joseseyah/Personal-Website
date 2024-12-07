@@ -6,7 +6,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js"></script>
-  <script src="firebase-config.js"></script>
+  <script src="firebase-config.js"></script> <!-- Ensure this file initializes 'storage' -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +48,7 @@
   </style>
 </head>
 <body>
-  <h1>Admin Panel - Add Polaroid Photo</h1>
+  <h1>Admin Panel - Add Polaroid Photos</h1>
   <form id="uploadForm">
     <input type="file" id="photo" required>
     <input type="text" id="caption" placeholder="Caption" required>
@@ -56,46 +56,48 @@
   </form>
 
   <script>
+    // Debugging: Check if 'storage' is initialized
+    console.log('Firebase Storage instance:', storage);
+
     document.getElementById('uploadForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
+      e.preventDefault();
 
-  const photo = document.getElementById('photo').files[0];
-  const caption = document.getElementById('caption').value;
+      const photo = document.getElementById('photo').files[0];
+      const caption = document.getElementById('caption').value;
 
-  if (!photo || !caption) {
-    alert('Please select a photo and enter a caption.');
-    return;
-  }
+      if (!photo || !caption) {
+        alert('Please select a photo and enter a caption.');
+        return;
+      }
 
-  try {
-    console.log('Starting photo upload...');
-    
-    // 1. Upload photo to Firebase Storage
-    const storageRef = storage.ref(`photos/${photo.name}`);
-    const uploadTask = storageRef.put(photo);
-    await uploadTask;
+      try {
+        console.log('Starting photo upload...');
+        
+        // 1. Upload photo to Firebase Storage
+        const storageRef = storage.ref(`photos/${photo.name}`);
+        const uploadTask = storageRef.put(photo);
+        await uploadTask;
 
-    console.log('Photo uploaded successfully.');
+        console.log('Photo uploaded successfully.');
 
-    // 2. Get the public URL of the uploaded image
-    const photoURL = await storageRef.getDownloadURL();
-    console.log('Photo URL:', photoURL);
+        // 2. Get the public URL of the uploaded image
+        const photoURL = await storageRef.getDownloadURL();
+        console.log('Photo URL:', photoURL);
 
-    // 3. Save the photo URL and caption to Firestore
-    await db.collection('photos').add({
-      photoURL,
-      caption,
-      uploadedAt: firebase.firestore.FieldValue.serverTimestamp(), // Add a timestamp
+        // 3. Save the photo URL and caption to Firestore
+        await db.collection('photos').add({
+          photoURL,
+          caption,
+          uploadedAt: firebase.firestore.FieldValue.serverTimestamp(), // Add a timestamp
+        });
+
+        alert('Photo uploaded successfully!');
+        document.getElementById('uploadForm').reset(); // Reset the form
+      } catch (error) {
+        console.error('Error uploading photo:', error);
+        alert('Failed to upload photo. Please try again.');
+      }
     });
-
-    alert('Photo uploaded successfully!');
-    document.getElementById('uploadForm').reset(); // Reset the form
-  } catch (error) {
-    console.error('Error uploading photo:', error);
-    alert('Failed to upload photo. Please try again.');
-  }
-});
-
   </script>
 </body>
 </html>
