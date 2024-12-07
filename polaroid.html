@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js"></script>
+  <script src="firebase-config.js"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Polaroid Portfolio</title>
@@ -47,16 +53,23 @@
 </head>
 <body>
   <h1>My Polaroid Photos</h1>
-  <div class="gallery">
-    <div class="photo">
-      <img src="IMG_5183.JPG" alt="Polaroid Photo 1">
-      <div class="caption">Mecca - 2024</div>
-    </div>
-    <div class="photo">
-      <img src="IMG_5327.JPG" alt="Polaroid Photo 2">
-      <div class="caption">Medina - 2024</div>
-    </div>
-    <!-- Add more photos here -->
-  </div>
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    // Fetch photos from Firebase Firestore
+    db.collection('photos').onSnapshot((snapshot) => {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = ''; // Clear existing photos
+      snapshot.forEach((doc) => {
+        const photo = doc.data();
+        gallery.innerHTML += `
+          <div class="photo">
+            <img src="${photo.photoURL}" alt="${photo.caption}">
+            <div class="caption">${photo.caption}</div>
+          </div>
+        `;
+      });
+    });
+  </script>
 </body>
 </html>
