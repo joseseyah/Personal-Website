@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Firebase Scripts -->
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
@@ -57,19 +58,39 @@
   <script>
     document.getElementById('uploadForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const photo = document.getElementById('photo').files[0];
       const caption = document.getElementById('caption').value;
 
+      if (!photo || !caption) {
+        alert('Please select a photo and enter a caption.');
+        return;
+      }
+
       try {
+        // 1. Upload photo to Firebase Storage
         const storageRef = storage.ref(`photos/${photo.name}`);
-        await storageRef.put(photo);
+        const uploadTask = storageRef.put(photo);
+
+        // Wait for the upload to complete
+        await uploadTask;
+
+        // 2. Get the public URL of the uploaded image
         const photoURL = await storageRef.getDownloadURL();
-        await db.collection('photos').add({ photoURL, caption });
+
+        // 3. Save the photo URL and caption to Firestore
+        await db.collection('photos').add({
+          photoURL,
+          caption,
+          uploadedAt: firebase.firestore.FieldValue.serverTimestamp(), // Add a timestamp
+        });
+
+        // Success message
         alert('Photo uploaded successfully!');
-        document.getElementById('uploadForm').reset();
+        document.getElementById('uploadForm').reset(); // Reset the form
       } catch (error) {
         console.error('Error uploading photo:', error);
-        alert('Failed to upload photo.');
+        alert('Failed to upload photo. Please try again.');
       }
     });
   </script>
