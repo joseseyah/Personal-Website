@@ -69,17 +69,49 @@
             font-size: 1rem;
         }
 
-        .placeholder-image {
+        .carousel {
             width: 300px;
             height: 600px;
-            background-color: var(--box-color);
-            border: 2px dashed var(--highlight-color);
+            overflow: hidden;
             border-radius: 24px;
+            position: relative;
+            background-color: var(--box-color);
+            border: 2px solid var(--highlight-color);
+        }
+
+        .carousel-inner {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--highlight-color);
-            font-weight: 600;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-inner img {
+            width: 300px;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--highlight-color);
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            opacity: 1;
         }
 
         section {
@@ -147,10 +179,9 @@
                 max-width: 90%;
             }
 
-            .placeholder-image {
+            .carousel {
                 width: 80%;
                 height: 400px;
-                margin-top: 1.5rem;
             }
 
             section {
@@ -169,42 +200,56 @@
     <main>
         <div class="hero-section">
             <div class="hero-text">
-                <h2>More than just a prayer app</h2>
+                <h2>Your nightly prayer companion</h2>
                 <p>
-                    Stay connected to your night worship with accurate prayer times for Midnight and the Last Third of the Night.
-                    Enjoy features like the London Unified Prayer Time, notifications 10 minutes before each prayer, and no location settings required.
+                    Stay connected to your worship with accurate prayer times for the Last Third of the Night and Midnight. 
+                    Features include London Unified Prayer Times, timely notifications 10 minutes before each prayer, 
+                    and no location settings required.
                 </p>
                 <div class="cta-buttons">
                     <a href="#" class="button">Download</a>
                     <a href="#" class="button">Support Us</a>
                 </div>
             </div>
-            <div class="placeholder-image">Phone Image Here</div>
+            <!-- Carousel -->
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <img src="img/phone1.png" alt="App Screenshot 1">
+                    <img src="img/phone2.png" alt="App Screenshot 2">
+                    <img src="img/phone3.png" alt="App Screenshot 3">
+                </div>
+                <div class="carousel-controls">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                </div>
+            </div>
         </div>
 
         <!-- Goals Section -->
         <section id="goals">
-            <h2>Application Goals</h2>
+            <h2>Why Choose Third of the Night?</h2>
             <p>
-                Third of the Night focuses on delivering accurate prayer times for Midnight and the Last Third of the Night, 
-                helping users maintain the spiritual practice of reciting Surah Al-Mulk before sleep. The app also offers prayer 
-                notifications 10 minutes before each prayer, ensuring you never miss a blessed time.
+                Our app ensures distraction-free worship with precise prayer notifications, a focus on the blessed Third of the Night, 
+                and privacy-first functionality requiring no location settings. Wake up, pray, and strengthen your nightly worship.
             </p>
         </section>
 
-        <!-- Privacy Policy -->
-        <section id="privacy-policy">
-            <h2>Privacy Policy</h2>
-            <p>
-                We collect minimal data to ensure accurate prayer times. Your privacy is our priority, and no location settings 
-                are required for the app to function. Data is securely stored with no sharing or selling to third parties.
-            </p>
+        <!-- Unique Features -->
+        <section id="features">
+            <h2>Standout Features</h2>
+            <ul>
+                <li>London Unified Prayer Times available</li>
+                <li>Notifications 10 minutes before each prayer</li>
+                <li>No location or tracking needed</li>
+                <li>Midnight & Last Third of Night emphasis</li>
+            </ul>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Third of the Night. All rights reserved.</p>
+        <p>&copy; 2024 Third of the Night. Strengthen your nightly worship.</p>
     </footer>
 </body>
 </html>
