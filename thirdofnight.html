@@ -4,48 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Night Prayers - About</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Third of the Night</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- CSS Styles -->
+    <style>
+        :root {
+            --background-color: #0A1B3D;
+            --box-color: #1C2A49;
+            --highlight-color: #FF9D66;
+            --text-color: #FDF3E7;
+            --button-color: #FF9D66;
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-main);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 1rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--highlight-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--highlight-color);
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        section {
+            background-color: var(--box-color);
+            border-radius: 12px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--highlight-color);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .button {
+            text-decoration: none;
+            color: var(--background-color);
+            background-color: var(--button-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e6884f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            border-top: 2px solid var(--highlight-color);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Night Prayers</h1>
+        <h1>Third of the Night</h1>
     </header>
 
+    <!-- Main Content -->
     <main>
+        <!-- Mission Section -->
         <section id="mission">
             <h2>Our Mission</h2>
             <p>
                 Our mission is to provide a simple, accurate, and ad-free prayer companion for Muslims worldwide. 
-                We aim to help users stay connected to their night worship, with a special focus on Midnight and 
-                the Last Third of the Night. The app is built to facilitate a smooth and spiritual end to the day 
-                by reciting Surah Al-Mulk and keeping track of the most blessed times of the night.
+                Stay connected to your night worship, focusing on Midnight and the Last Third of the Night. The app also provides
+                the London Unified Prayer Time for those who prefer it, with no need for location settings.
             </p>
+            <div class="cta-buttons">
+                <a href="#" class="button">Download</a>
+                <a href="#" class="button">Support Us</a>
+            </div>
         </section>
 
+        <!-- Goals Section -->
         <section id="goals">
             <h2>Application Goals</h2>
             <p>
-                Night Prayers was created to address the need for a privacy-first, distraction-free application 
-                that focuses solely on providing accurate prayer times for Midnight and the Last Third of the Night. 
-                Our goal is to help Muslims strengthen their spiritual connection before sleep and maintain the 
-                important practice of reciting Surah Al-Mulk.
+                Third of the Night focuses on delivering accurate prayer times for Midnight and the Last Third of the Night, 
+                helping users maintain the spiritual practice of reciting Surah Al-Mulk before sleep. The app also offers prayer 
+                notifications 10 minutes before each prayer, ensuring you never miss a blessed time.
             </p>
         </section>
 
+        <!-- Privacy Policy -->
         <section id="privacy-policy">
             <h2>Privacy Policy</h2>
             <p>
-                At Night Prayers, we prioritize your privacy. We collect minimal information, such as your city 
-                selection, to provide accurate prayer times. This data is stored securely in Firebase Firestore 
-                and is only used to improve the core functionality of the app. We do not share or sell your 
-                information to third parties. For donations, payment details are handled externally via Ko-fi.
+                We collect minimal data (like your city selection) to ensure accurate prayer times. Your privacy is our priority, 
+                and data is securely stored with no sharing or selling to third parties.
             </p>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Night Prayers. All rights reserved.</p>
+        <p>&copy; 2024 Third of the Night. All rights reserved.</p>
     </footer>
 </body>
 </html>
