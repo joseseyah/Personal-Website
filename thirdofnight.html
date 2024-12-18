@@ -35,7 +35,18 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .logo {
+            height: 50px;
+            width: 50px;
+        }
+
+        .logo-text {
             font-size: 1.8rem;
             font-weight: 600;
             color: var(--highlight-color);
@@ -223,7 +234,10 @@
 <body>
     <!-- Header -->
     <header>
-        <a href="#" class="logo">Third of the Night</a>
+        <div class="logo-container">
+            <img src="thirdofthenightlogo.png" alt="Third of the Night Logo" class="logo">
+            <a href="#" class="logo-text">Third of the Night</a>
+        </div>
         <nav>
             <ul>
                 <li><a href="#goals">Why Choose Us</a></li>
@@ -245,7 +259,7 @@
                     and no location settings required.
                 </p>
                 <div class="cta-buttons">
-                    <a href="https://apps.apple.com/gb/app/third-of-the-night/id6483865746" class="button">Download</a>
+                    <a href="#" class="button">Download</a>
                     <a href="#" class="button">Support Us</a>
                 </div>
             </div>
