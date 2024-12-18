@@ -15,6 +15,7 @@
             --highlight-color: #FF9D66;
             --text-color: #FDF3E7;
             --button-color: #FF9D66;
+            --white-background: #FFFFFF;
             --font-main: 'Poppins', sans-serif;
         }
 
@@ -59,10 +60,6 @@
             gap: 1.5rem;
             margin: 0;
             padding: 0;
-        }
-
-        nav ul li {
-            font-size: 1rem;
         }
 
         nav ul li a {
@@ -110,7 +107,6 @@
             height: 600px;
             overflow: hidden;
             border-radius: 24px;
-            position: relative;
             background-color: var(--box-color);
             border: 2px solid var(--highlight-color);
         }
@@ -118,7 +114,6 @@
         .carousel-inner {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            height: 100%;
         }
 
         .carousel-inner img {
@@ -150,47 +145,39 @@
             opacity: 1;
         }
 
-        section {
-            background-color: var(--box-color);
-            border-radius: 12px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            max-width: 1200px;
-            width: 90%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .feature-text {
-            flex: 1;
-            margin-right: 2rem;
-        }
-
-        .feature-placeholder {
-            width: 300px;
-            height: 600px;
-            background-color: var(--background-color);
-            border: 2px dashed var(--highlight-color);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--highlight-color);
-            font-size: 1.2rem;
+        /* White Feature Section */
+        .feature-section {
+            background-color: var(--white-background);
+            color: #333333;
+            padding: 3rem 2rem;
             text-align: center;
+            width: 100%;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            color: var(--highlight-color);
+        .feature-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .feature-box {
+            background-color: #F7F9FC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 2rem;
+            width: 300px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-box h3 {
+            color: var(--background-color);
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        p {
-            font-size: 1rem;
-            color: var(--text-color);
+        .feature-box p {
+            color: #555555;
         }
 
         footer {
@@ -221,16 +208,13 @@
                 max-width: 90%;
             }
 
-            section {
-                flex-direction: column;
-                text-align: center;
-                padding: 1.5rem;
+            .carousel {
+                width: 80%;
             }
 
-            .feature-placeholder {
-                margin-top: 1.5rem;
-                width: 80%;
-                height: 400px;
+            .feature-container {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -263,44 +247,37 @@
                     and no location settings required.
                 </p>
             </div>
-            <div class="feature-placeholder">Carousel Placeholder</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <img src="img/phone1.png" alt="App Screenshot 1">
+                    <img src="img/phone2.png" alt="App Screenshot 2">
+                    <img src="img/phone3.png" alt="App Screenshot 3">
+                </div>
+            </div>
         </div>
 
-        <!-- Night & Day Views Section -->
-        <section id="night-day">
-            <div class="feature-text">
-                <h2>Night & Day Prayer Views</h2>
-                <p>Calculate Midnight and the Last Third of the Night with ease, and enjoy visually distinct Day and Night prayer views.</p>
+        <!-- Feature Section -->
+        <div class="feature-section">
+            <h2>Explore Our Features</h2>
+            <div class="feature-container">
+                <div class="feature-box">
+                    <h3>Night & Day Views</h3>
+                    <p>Calculate Midnight and the Last Third of the Night with ease, and enjoy visually distinct Day and Night views.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Quran Features</h3>
+                    <p>Access the Quran to read or listen seamlessly, supporting your worship with spiritual recitations.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>London Prayer Times</h3>
+                    <p>Stay accurate with the London Unified Prayer Timetable, ensuring consistency without location tracking.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Prayer Notifications</h3>
+                    <p>Get timely reminders 15 minutes before each prayer to stay punctual and prepared for worship.</p>
+                </div>
             </div>
-            <div class="feature-placeholder">Night & Day View Placeholder</div>
-        </section>
-
-        <!-- Quran Features Section -->
-        <section id="quran">
-            <div class="feature-text">
-                <h2>Read & Listen to the Quran</h2>
-                <p>Access the Quran to read or listen seamlessly, supporting your nightly worship with spiritual recitations.</p>
-            </div>
-            <div class="feature-placeholder">Quran Feature Placeholder</div>
-        </section>
-
-        <!-- London Unified Prayer Section -->
-        <section id="london-prayer">
-            <div class="feature-text">
-                <h2>London Unified Prayer Timetable</h2>
-                <p>Stay accurate with the London Unified Prayer timetable, ensuring consistent timings without location tracking.</p>
-            </div>
-            <div class="feature-placeholder">London Timetable Placeholder</div>
-        </section>
-
-        <!-- Notifications Section -->
-        <section id="notifications">
-            <div class="feature-text">
-                <h2>Prayer Notifications</h2>
-                <p>Never miss a prayer with reminders 15 minutes before each prayer, keeping you punctual and prepared.</p>
-            </div>
-            <div class="feature-placeholder">Notifications Placeholder</div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->
