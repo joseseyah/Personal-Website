@@ -156,8 +156,30 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
             padding: 2rem;
             margin-bottom: 2rem;
-            max-width: 800px;
+            max-width: 1200px;
             width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feature-text {
+            flex: 1;
+            margin-right: 2rem;
+        }
+
+        .feature-placeholder {
+            width: 300px;
+            height: 600px;
+            background-color: var(--background-color);
+            border: 2px dashed var(--highlight-color);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--highlight-color);
+            font-size: 1.2rem;
+            text-align: center;
         }
 
         h2 {
@@ -169,27 +191,6 @@
         p {
             font-size: 1rem;
             color: var(--text-color);
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .button {
-            text-decoration: none;
-            color: var(--background-color);
-            background-color: var(--button-color);
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #e6884f;
         }
 
         footer {
@@ -220,13 +221,16 @@
                 max-width: 90%;
             }
 
-            .carousel {
-                width: 80%;
-                height: 400px;
+            section {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
             }
 
-            section {
-                padding: 1.5rem;
+            .feature-placeholder {
+                margin-top: 1.5rem;
+                width: 80%;
+                height: 400px;
             }
         }
     </style>
@@ -240,10 +244,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#goals">Why Choose Us</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#night-day">Night & Day Views</a></li>
+                <li><a href="#quran">Quran Features</a></li>
+                <li><a href="#notifications">Notifications</a></li>
                 <li><a href="#">Download</a></li>
-                <li><a href="#">Support</a></li>
             </ul>
         </nav>
     </header>
@@ -255,47 +259,47 @@
                 <h2>Your nightly prayer companion</h2>
                 <p>
                     Stay connected to your worship with accurate prayer times for the Last Third of the Night and Midnight. 
-                    Features include London Unified Prayer Times, timely notifications 10 minutes before each prayer, 
+                    Features include London Unified Prayer Times, timely notifications 15 minutes before each prayer, 
                     and no location settings required.
                 </p>
-                <div class="cta-buttons">
-                    <a href="#" class="button">Download</a>
-                    <a href="#" class="button">Support Us</a>
-                </div>
             </div>
-            <!-- Carousel -->
-            <div class="carousel">
-                <div class="carousel-inner">
-                    <img src="img/phone1.png" alt="App Screenshot 1">
-                    <img src="img/phone2.png" alt="App Screenshot 2">
-                    <img src="img/phone3.png" alt="App Screenshot 3">
-                </div>
-                <div class="carousel-controls">
-                    <div class="carousel-dot active"></div>
-                    <div class="carousel-dot"></div>
-                    <div class="carousel-dot"></div>
-                </div>
-            </div>
+            <div class="feature-placeholder">Carousel Placeholder</div>
         </div>
 
-        <!-- Goals Section -->
-        <section id="goals">
-            <h2>Why Choose Third of the Night?</h2>
-            <p>
-                Our app ensures distraction-free worship with precise prayer notifications, a focus on the blessed Third of the Night, 
-                and privacy-first functionality requiring no location settings. Wake up, pray, and strengthen your nightly worship.
-            </p>
+        <!-- Night & Day Views Section -->
+        <section id="night-day">
+            <div class="feature-text">
+                <h2>Night & Day Prayer Views</h2>
+                <p>Calculate Midnight and the Last Third of the Night with ease, and enjoy visually distinct Day and Night prayer views.</p>
+            </div>
+            <div class="feature-placeholder">Night & Day View Placeholder</div>
         </section>
 
-        <!-- Unique Features -->
-        <section id="features">
-            <h2>Standout Features</h2>
-            <ul>
-                <li>London Unified Prayer Times available</li>
-                <li>Notifications 10 minutes before each prayer</li>
-                <li>No location or tracking needed</li>
-                <li>Midnight & Last Third of Night emphasis</li>
-            </ul>
+        <!-- Quran Features Section -->
+        <section id="quran">
+            <div class="feature-text">
+                <h2>Read & Listen to the Quran</h2>
+                <p>Access the Quran to read or listen seamlessly, supporting your nightly worship with spiritual recitations.</p>
+            </div>
+            <div class="feature-placeholder">Quran Feature Placeholder</div>
+        </section>
+
+        <!-- London Unified Prayer Section -->
+        <section id="london-prayer">
+            <div class="feature-text">
+                <h2>London Unified Prayer Timetable</h2>
+                <p>Stay accurate with the London Unified Prayer timetable, ensuring consistent timings without location tracking.</p>
+            </div>
+            <div class="feature-placeholder">London Timetable Placeholder</div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section id="notifications">
+            <div class="feature-text">
+                <h2>Prayer Notifications</h2>
+                <p>Never miss a prayer with reminders 15 minutes before each prayer, keeping you punctual and prepared.</p>
+            </div>
+            <div class="feature-placeholder">Notifications Placeholder</div>
         </section>
     </main>
 
