@@ -6,6 +6,7 @@ async function fetchProducts() {
         const data = await response.json();
 
         if (response.ok) {
+            console.log(`Product Details for ${product.name}:`, data);
             displayProducts(data.result); // Adjust based on your API structure
         } else {
             console.error('Error fetching products:', data.error);
