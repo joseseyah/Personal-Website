@@ -21,18 +21,22 @@ function displayProducts(products) {
     shopContainer.innerHTML = '';
 
     products.forEach(product => {
+        const firstVariant = product.details?.sync_variants?.[0]; // Get the first variant
+        const price = firstVariant?.retail_price || 'N/A'; // Get price from the first variant
+
         const productElement = document.createElement('div');
         productElement.className = 'item';
 
         productElement.innerHTML = `
             <img src="${product.thumbnail_url}" alt="${product.name}">
             <h2>${product.name}</h2>
-            <p>From: $${product.price || 'N/A'}</p>
+            <p>Price: £${price}</p>
             <button onclick="window.location.href='${product.url}'">Buy Now</button>
         `;
         shopContainer.appendChild(productElement);
     });
 }
+ß
 
 // Call the function when the page loads
 fetchProducts();
