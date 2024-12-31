@@ -1,9 +1,6 @@
-// api/products.js
-import fetch from 'node-fetch';
+const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
 
 export default async function handler(req, res) {
-    const PRINTFUL_API_KEY = 'KLSRVwyIPbmWFM7zFBeh1OnNyexSeNAxK1jMQ14x';
-
     try {
         const response = await fetch('https://api.printful.com/store/products', {
             headers: {
@@ -23,4 +20,3 @@ export default async function handler(req, res) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
-
