@@ -36,7 +36,6 @@ function displayProducts(products) {
         shopContainer.appendChild(productElement);
     });
 }
-ß
 
 // Call the function when the page loads
 fetchProducts();
