@@ -26,7 +26,7 @@ function displayProducts(products) {
         productElement.innerHTML = `
             <img src="${product.thumbnail_url}" alt="${product.name}">
             <h2>${product.name}</h2>
-            <p>${product.description}</p>
+            <p>From: $${product.retail_price || 'N/A'}</p>
             <button onclick="window.location.href='${product.url}'">Buy Now</button>
         `;
         shopContainer.appendChild(productElement);
