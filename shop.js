@@ -22,8 +22,15 @@ function displayProducts(products) {
     shopContainer.innerHTML = '';
 
     products.forEach(product => {
-        const firstVariant = product.details?.sync_variants?.[0]; // Get the first variant
-        const price = firstVariant?.retail_price || 'N/A'; // Get price from the first variant
+        // Determine the price based on the product name
+        let price;
+        if (product.name.includes('Hoodie')) {
+            price = '38.00'; // Price for Hoodies
+        } else if (product.name.includes('T-shirt')) {
+            price = '18.00'; // Price for T-shirts
+        } else {
+            price = 'N/A'; // Default fallback if no match
+        }
 
         const productElement = document.createElement('div');
         productElement.className = 'item';
@@ -37,6 +44,7 @@ function displayProducts(products) {
         shopContainer.appendChild(productElement);
     });
 }
+
 
 
 // Call the function when the page loads
