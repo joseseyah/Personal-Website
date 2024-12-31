@@ -1,13 +1,8 @@
 async function fetchPrintfulProducts() {
-    const apiKey = 'KLSRVwyIPbmWFM7zFBeh1OnNyexSeNAxK1jMQ14x'; 
-    const endpoint = 'https://api.printful.com/store/products';
+    const endpoint = 'https://api-15lpe44u7-jhs-projects-b0f9866c.vercel.app/api/products';
 
     try {
-        const response = await fetch(endpoint, {
-            headers: {
-                'Authorization': `Bearer ${apiKey}`
-            }
-        });
+        const response = await fetch(endpoint);
 
         console.log('Response status:', response.status); // Debugging
 
@@ -22,7 +17,6 @@ async function fetchPrintfulProducts() {
         console.error('Error:', error);
     }
 }
-
 
 function displayProducts(products) {
     const shopContainer = document.getElementById('shop-container');
@@ -44,4 +38,3 @@ function displayProducts(products) {
 
 // Fetch products when the page loads
 fetchPrintfulProducts();
-
