@@ -1,17 +1,14 @@
-async function fetchPrintfulProducts() {
-    const endpoint = 'https://api-15lpe44u7-jhs-projects-b0f9866c.vercel.app/api/products';
+const endpoint = 'https://printful-proxy-gold.vercel.app/api/products';
 
+async function fetchProducts() {
     try {
         const response = await fetch(endpoint);
-
-        console.log('Response status:', response.status); // Debugging
-
         const data = await response.json();
-        
+
         if (response.ok) {
-            displayProducts(data.result);
+            displayProducts(data.result); // Adjust based on your API structure
         } else {
-            console.error('Error fetching products:', data);
+            console.error('Error fetching products:', data.error);
         }
     } catch (error) {
         console.error('Error:', error);
@@ -20,7 +17,7 @@ async function fetchPrintfulProducts() {
 
 function displayProducts(products) {
     const shopContainer = document.getElementById('shop-container');
-    shopContainer.innerHTML = ''; // Clear any existing content
+    shopContainer.innerHTML = '';
 
     products.forEach(product => {
         const productElement = document.createElement('div');
@@ -36,5 +33,5 @@ function displayProducts(products) {
     });
 }
 
-// Fetch products when the page loads
-fetchPrintfulProducts();
+// Call the function when the page loads
+fetchProducts();
