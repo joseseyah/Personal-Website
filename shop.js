@@ -8,17 +8,21 @@ async function fetchPrintfulProducts() {
                 'Authorization': `Bearer ${apiKey}`
             }
         });
+
+        console.log('Response status:', response.status); // Debugging
+
         const data = await response.json();
         
         if (response.ok) {
             displayProducts(data.result);
         } else {
-            console.error('Error fetching products:', data.error);
+            console.error('Error fetching products:', data);
         }
     } catch (error) {
         console.error('Error:', error);
     }
 }
+
 
 function displayProducts(products) {
     const shopContainer = document.getElementById('shop-container');
