@@ -6,6 +6,7 @@ async function fetchProducts() {
         const data = await response.json();
 
         if (response.ok) {
+            console.log('Fetched Products:', data.result); // Log the fetched products instead
             displayProducts(data.result); // Adjust based on your API structure
         } else {
             console.error('Error fetching products:', data.error);
@@ -14,6 +15,7 @@ async function fetchProducts() {
         console.error('Error:', error);
     }
 }
+
 
 function displayProducts(products) {
     const shopContainer = document.getElementById('shop-container');
@@ -35,6 +37,7 @@ function displayProducts(products) {
         shopContainer.appendChild(productElement);
     });
 }
+
 
 // Call the function when the page loads
 fetchProducts();
