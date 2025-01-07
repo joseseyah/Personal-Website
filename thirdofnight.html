@@ -81,15 +81,16 @@
 
         .hero-section {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
             max-width: 1200px;
             width: 100%;
             margin-bottom: 3rem;
         }
 
         .hero-text {
-            max-width: 50%;
+            max-width: 60%;
         }
 
         .hero-text h2 {
@@ -103,12 +104,14 @@
         }
 
         .carousel {
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             height: 600px;
             overflow: hidden;
             border-radius: 24px;
             background-color: var(--box-color);
             border: 2px solid var(--highlight-color);
+            margin-top: 2rem;
         }
 
         .carousel-inner {
@@ -117,12 +120,11 @@
         }
 
         .carousel-inner img {
-            width: 300px;
-            height: 600px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
-        /* White Feature Section */
         .feature-section {
             background-color: var(--white-background);
             color: #333333;
@@ -132,10 +134,9 @@
         }
 
         .feature-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
         .feature-box {
@@ -143,45 +144,7 @@
             border: 1px solid #E2E8F0;
             border-radius: 12px;
             padding: 2rem;
-            width: 350px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .phone-placeholder {
-            width: 220px;
-            height: 440px;
-            margin: 1.5rem auto 0;
-            border-radius: 24px;
-            border: 2px solid #ddd;
-            background-color: #eaeaea;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .phone-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the image fills the container */
-            border-radius: 24px; /* Matches the placeholder's rounded corners */
-        }
-
-
-        .feature-box .phone-placeholder {
-            width: 220px;
-            height: 440px;
-            margin: 1.5rem auto 0;
-            border-radius: 24px;
-            border: 2px solid #ddd;
-            background-color: #eaeaea;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 1rem;
         }
 
         .feature-box h3 {
@@ -202,34 +165,13 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-
-            .hero-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
             .hero-text {
                 max-width: 90%;
             }
 
-            .carousel {
-                width: 80%;
-            }
-
             .feature-container {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -253,8 +195,11 @@
     <main>
         <section class="hero-section">
             <div class="hero-text">
-                <h2>How Worshippers Build Better Night Prayers</h2>
-                <p>The ultimate platform for analyzing prayer times, staying consistent, and maintaining nightly worship routines.</p>
+                <h2>Your nightly prayer companion</h2>
+                <p>
+                    Stay connected to your worship with accurate prayer times for the Last Third of the Night and Midnight. 
+                    Features include London Unified Prayer Times, timely notifications, and no location settings required.
+                </p>
             </div>
             <div class="carousel">
                 <div class="carousel-inner">
@@ -265,7 +210,7 @@
             </div>
         </section>
 
-        <!-- Feature Sections -->
+        <!-- Feature Section -->
         <section class="feature-section">
             <div class="feature-container">
                 <!-- PAS Framework Example -->
@@ -286,8 +231,8 @@
                 <!-- Social Proof Example -->
                 <div class="feature-box">
                     <h3>Social Proof</h3>
-                    <p>"This app transformed my nightly worship routine! Highly recommended."</p>
-                    <p>- Lisa (User Testimonial)</p>
+                    <p>"Well Designed App: Such an easy to navigate app, which is quite refreshing."</p>
+                    <p>- Imran_778</p>
                 </div>
 
                 <!-- Visual Storytelling -->
@@ -301,7 +246,7 @@
             </div>
         </section>
 
-        <!-- Call to Value -->
+        <!-- Call to Action -->
         <section class="call-to-value" style="text-align: center; padding: 2rem;">
             <h2>Why Choose Third of the Night?</h2>
             <p>It's not just about tracking prayer times; it's about strengthening your connection with nightly worship.</p>
