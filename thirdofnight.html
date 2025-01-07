@@ -165,6 +165,28 @@
             font-size: 0.9rem;
         }
 
+        .phone-placeholder {
+            width: 220px;
+            height: 440px;
+            margin: 1.5rem auto 0;
+            border-radius: 24px;
+            border: 2px solid #ddd;
+            background-color: #eaeaea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .phone-placeholder img {
+            max-width: 100%; /* Prevents the image from exceeding the container's width */
+            max-height: 100%; /* Prevents the image from exceeding the container's height */
+            object-fit: cover; /* Ensures the image is scaled properly within the placeholder */
+            border-radius: 24px; /* Matches the placeholder's rounded corners */
+        }
+
+
         @media (max-width: 768px) {
             .hero-text {
                 max-width: 90%;
