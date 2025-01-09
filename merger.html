@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge PDFs</title>
+</head>
+<body>
+    <h1>Merge Two PDFs</h1>
+    <form id="pdfForm">
+        <label for="pdf1">Select first PDF:</label>
+        <input type="file" id="pdf1" accept="application/pdf" required><br><br>
+        <label for="pdf2">Select second PDF:</label>
+        <input type="file" id="pdf2" accept="application/pdf" required><br><br>
+        <button type="submit">Merge PDFs</button>
+    </form>
+    <p id="status"></p>
+    <a id="downloadLink" style="display:none;">Download Merged PDF</a>
+
+    <script type="module">
+        import { PDFDocument } from 'https://unpkg.com/pdf-lib/dist/pdf-lib.min.js';
+
+        const form = document.getElementById('pdfForm');
+        const status = document.getElementById('status');
+        const downloadLink = document.getElementById('downloadLink');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            status.textContent = 'Merging PDFs...';
+
+            const pdf1File = document.getElementById('pdf1').files[0];
+            const pdf2File = document.getElementById('pdf2').files[0];
+
+            if (!pdf1File || !pdf2File) {
+                status.textContent = 'Please select two PDF files.';
+                return;
+            }
+
+            try {
+                // Load both PDFs
+                const pdf1Bytes = await pdf1File.arrayBuffer();
+                const pdf2Bytes = await pdf2File.arrayBuffer();
+
+                const pdf1Doc = await PDFDocument.load(pdf1Bytes);
+                const pdf2Doc = await PDFDocument.load(pdf2Bytes);
+
+                // Create a new PDFDocument for the merged result
+                const mergedPdf = await PDFDocument.create();
+
+                // Copy pages from both PDFs
+                const pdf1Pages = await mergedPdf.copyPages(pdf1Doc, pdf1Doc.getPageIndices());
+                pdf1Pages.forEach((page) => mergedPdf.addPage(page));
+
+                const pdf2Pages = await mergedPdf.copyPages(pdf2Doc, pdf2Doc.getPageIndices());
+                pdf2Pages.forEach((page) => mergedPdf.addPage(page));
+
+                // Serialize the merged PDF to bytes
+                const mergedPdfBytes = await mergedPdf.save();
+
+                // Create a Blob and URL for download
+                const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+
+                // Set the download link
+                downloadLink.href = url;
+                downloadLink.download = 'merged.pdf';
+                downloadLink.style.display = 'inline';
+                downloadLink.textContent = 'Download Merged PDF';
+                status.textContent = 'Merge complete!';
+            } catch (error) {
+                status.textContent = 'An error occurred while merging the PDFs.';
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>
