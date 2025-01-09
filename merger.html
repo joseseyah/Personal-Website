@@ -17,9 +17,8 @@
     <p id="status"></p>
     <a id="downloadLink" style="display:none;">Download Merged PDF</a>
 
-    <script type="module">
-        import { PDFDocument } from 'https://unpkg.com/pdf-lib/dist/pdf-lib.min.js';
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script>
         const form = document.getElementById('pdfForm');
         const status = document.getElementById('status');
         const downloadLink = document.getElementById('downloadLink');
@@ -41,11 +40,11 @@
                 const pdf1Bytes = await pdf1File.arrayBuffer();
                 const pdf2Bytes = await pdf2File.arrayBuffer();
 
-                const pdf1Doc = await PDFDocument.load(pdf1Bytes);
-                const pdf2Doc = await PDFDocument.load(pdf2Bytes);
+                const pdf1Doc = await PDFLib.PDFDocument.load(pdf1Bytes);
+                const pdf2Doc = await PDFLib.PDFDocument.load(pdf2Bytes);
 
                 // Create a new PDFDocument for the merged result
-                const mergedPdf = await PDFDocument.create();
+                const mergedPdf = await PDFLib.PDFDocument.create();
 
                 // Copy pages from both PDFs
                 const pdf1Pages = await mergedPdf.copyPages(pdf1Doc, pdf1Doc.getPageIndices());
