@@ -57,12 +57,12 @@
                 // Serialize the merged PDF to bytes
                 const mergedPdfBytes = await mergedPdf.save();
 
-                // Create a Blob and URL for download
+                // Create a Blob for the merged PDF
                 const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
-                const url = URL.createObjectURL(blob);
+                const blobUrl = URL.createObjectURL(blob);
 
-                // Set the download link
-                downloadLink.href = url;
+                // Trigger download
+                downloadLink.href = blobUrl;
                 downloadLink.download = 'merged.pdf';
                 downloadLink.style.display = 'inline';
                 downloadLink.textContent = 'Download Merged PDF';
