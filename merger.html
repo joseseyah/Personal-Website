@@ -4,73 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merge PDFs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0A1B3D;
+            color: #FDF3E7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #FF9D66;
+        }
+
+        form {
+            background-color: #1C2A49;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        form label {
+            font-size: 16px;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input[type="file"] {
+            display: block;
+            margin: 0 auto 15px;
+            background-color: #FDF3E7;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #FF9D66;
+            color: #0A1B3D;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FFB347;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+        a#downloadLink {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #FF9D66;
+            color: #0A1B3D;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a#downloadLink:hover {
+            background-color: #FFB347;
+        }
+    </style>
 </head>
 <body>
-    <h1>Merge Two PDFs</h1>
     <form id="pdfForm">
+        <h1>Merge Two PDFs</h1>
         <label for="pdf1">Select first PDF:</label>
-        <input type="file" id="pdf1" accept="application/pdf" required><br><br>
+        <input type="file" id="pdf1" accept="application/pdf" required><br>
         <label for="pdf2">Select second PDF:</label>
-        <input type="file" id="pdf2" accept="application/pdf" required><br><br>
+        <input type="file" id="pdf2" accept="application/pdf" required><br>
         <button type="submit">Merge PDFs</button>
+        <p id="status"></p>
+        <a id="downloadLink" style="display:none;">Download Merged PDF</a>
     </form>
-    <p id="status"></p>
-    <a id="downloadLink" style="display:none;">Download Merged PDF</a>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-    <script>
-        const form = document.getElementById('pdfForm');
-        const status = document.getElementById('status');
-        const downloadLink = document.getElementById('downloadLink');
-
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            status.textContent = 'Merging PDFs...';
-
-            const pdf1File = document.getElementById('pdf1').files[0];
-            const pdf2File = document.getElementById('pdf2').files[0];
-
-            if (!pdf1File || !pdf2File) {
-                status.textContent = 'Please select two PDF files.';
-                return;
-            }
-
-            try {
-                // Load both PDFs
-                const pdf1Bytes = await pdf1File.arrayBuffer();
-                const pdf2Bytes = await pdf2File.arrayBuffer();
-
-                const pdf1Doc = await PDFLib.PDFDocument.load(pdf1Bytes);
-                const pdf2Doc = await PDFLib.PDFDocument.load(pdf2Bytes);
-
-                // Create a new PDFDocument for the merged result
-                const mergedPdf = await PDFLib.PDFDocument.create();
-
-                // Copy pages from both PDFs
-                const pdf1Pages = await mergedPdf.copyPages(pdf1Doc, pdf1Doc.getPageIndices());
-                pdf1Pages.forEach((page) => mergedPdf.addPage(page));
-
-                const pdf2Pages = await mergedPdf.copyPages(pdf2Doc, pdf2Doc.getPageIndices());
-                pdf2Pages.forEach((page) => mergedPdf.addPage(page));
-
-                // Serialize the merged PDF to bytes
-                const mergedPdfBytes = await mergedPdf.save();
-
-                // Create a Blob for the merged PDF
-                const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
-                const blobUrl = URL.createObjectURL(blob);
-
-                // Trigger download
-                downloadLink.href = blobUrl;
-                downloadLink.download = 'merged.pdf';
-                downloadLink.style.display = 'inline';
-                downloadLink.textContent = 'Download Merged PDF';
-                status.textContent = 'Merge complete!';
-            } catch (error) {
-                status.textContent = 'An error occurred while merging the PDFs.';
-                console.error(error);
-            }
-        });
-    </script>
 </body>
 </html>
