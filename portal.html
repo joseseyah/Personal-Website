@@ -28,7 +28,6 @@
         measurementId: "G-WXJX9Q93YK"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
@@ -41,13 +40,13 @@
             const adminData = masjidDoc.data();
             if (adminData.admin_user === username && adminData.admin_pass === password) {
                 console.log("Login Successful");
-                window.location.href = 'prayerTimes.html';
+                window.location.href = 'prayerTimes.html'; // Redirect to prayerTimes.html on successful login
             } else {
-                console.log("Invalid username or password");
+                console.error("Invalid username or password");
                 alert("Invalid username or password");
             }
         } else {
-            console.log("No such masjid registered!");
+            console.error("No such masjid registered!");
             alert("No such masjid registered!");
         }
     }
@@ -60,6 +59,7 @@
         login(masjidName, username, password);
     });
 </script>
+
 
 </head>
 <body>
