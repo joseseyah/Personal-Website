@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #0A1B3D; /* Dark blue background */
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,12 +9,11 @@ body {
 }
 
 .login-container {
-    background: #1C2A49; /* Slightly lighter blue */
+    background: white;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
-    color: #FF9D66; /* Highlight text color */
 }
 
 .login-form {
@@ -30,15 +29,13 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #FF9D66; /* Highlight color for borders */
+    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: #FDF3E7; /* Light background for input fields */
-    color: #1C2A49; /* Dark text for readability */
 }
 
 button.login-button {
-    background-color: #FF9D66; /* Highlight button color */
+    background-color: #4CAF50; /* Green */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -48,10 +45,10 @@ button.login-button {
 }
 
 button.login-button:hover {
-    background-color: #E68A53; /* Slightly darker orange on hover */
+    background-color: #45a049;
 }
 
 h2 {
     text-align: center;
-    color: #FDF3E7; /* Light page background color for header text */
+    color: #333;
 }
