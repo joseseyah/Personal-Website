@@ -9,14 +9,11 @@
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <!-- Add Firestore SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
-    <!-- Firebase App (always required) -->
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-<!-- Firestore SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
 <!-- Your custom script as a module -->
 <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+    // Import Firebase services
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+    import { getFirestore, collection, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
     const firebaseConfig = {
         apiKey: "AIzaSyDtRH4i47l7rykIOaqozaR-QPL1kXyTh3A",
@@ -28,11 +25,12 @@
         measurementId: "G-WXJX9Q93YK"
     };
 
+    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
     async function login(masjidName, username, password) {
-        const portalRef = db.collection('portal');
+        const portalRef = collection(db, 'portal'); // Use collection function
         const masjidDocRef = doc(portalRef, masjidName);
         const masjidDoc = await getDoc(masjidDocRef);
 
@@ -40,7 +38,7 @@
             const adminData = masjidDoc.data();
             if (adminData.admin_user === username && adminData.admin_pass === password) {
                 console.log("Login Successful");
-                window.location.href = 'prayerTimes.html'; // Redirect to prayerTimes.html on successful login
+                window.location.href = 'prayerTimes.html';
             } else {
                 console.error("Invalid username or password");
                 alert("Invalid username or password");
@@ -59,6 +57,7 @@
         login(masjidName, username, password);
     });
 </script>
+
 
 
 </head>
