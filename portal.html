@@ -5,11 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Portal</title>
     <link rel="stylesheet" href="portal.css">
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <!-- Add Firestore SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+    <script>
+        const firebaseConfig = {
+          apiKey: "YOUR_API_KEY",
+          authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+          projectId: "YOUR_PROJECT_ID",
+          storageBucket: "YOUR_PROJECT_ID.appspot.com",
+          messagingSenderId: "YOUR_SENDER_ID",
+          appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        async function login(masjidName, username, password) {
+            const portalRef = db.collection('portal');
+            const masjidDoc = await portalRef.doc(masjidName).get();
+
+            if (masjidDoc.exists) {
+                const adminData = masjidDoc.data();
+                if (adminData.admin_user === username && adminData.admin_pass === password) {
+                    console.log("Login Successful");
+                    // Redirect to a dashboard or admin page
+                    window.location.href = 'dashboard.html';
+                } else {
+                    console.log("Invalid username or password");
+                    alert("Invalid username or password");
+                }
+            } else {
+                console.log("No such masjid registered!");
+                alert("No such masjid registered!");
+            }
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const masjidName = document.getElementById('masjid-name').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            login(masjidName, username, password);
+        });
+    </script>
 </head>
 <body>
     <div class="login-container">
         <form id="login-form" class="login-form">
             <h2>Login to Access Portal</h2>
+            <div class="input-group">
+                <input type="text" id="masjid-name" placeholder="Masjid Name" required>
+            </div>
             <div class="input-group">
                 <input type="text" id="username" placeholder="Username" required>
             </div>
