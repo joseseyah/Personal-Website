@@ -28,12 +28,11 @@
             const portalRef = db.collection('portal');
             const masjidDoc = await portalRef.doc(masjidName).get();
 
-            if (masjidDoc.exists) {
+            if (masjidDoc.exists()) {
                 const adminData = masjidDoc.data();
                 if (adminData.admin_user === username && adminData.admin_pass === password) {
                     console.log("Login Successful");
-                    // Redirect to a dashboard or admin page
-                    window.location.href = 'dashboard.html';
+                    window.location.href = 'prayerTimes.html'; // Redirect to prayerTimes.html on successful login
                 } else {
                     console.log("Invalid username or password");
                     alert("Invalid username or password");
