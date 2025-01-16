@@ -9,48 +9,58 @@
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <!-- Add Firestore SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
-    <script>
-        const firebaseConfig = {
-          apiKey: "AIzaSyDtRH4i47l7rykIOaqozaR-QPL1kXyTh3A",
-          authDomain: "thirdofnight-cbbdb.firebaseapp.com",
-          projectId: "thirdofnight-cbbdb",
-          storageBucket: "thirdofnight-cbbdb.firebasestorage.app",
-          messagingSenderId: "315352803781",
-          appId: "1:315352803781:web:6416488ca959726c3683ac",
-          measurementId: "G-WXJX9Q93YK"
-        };
+    <!-- Firebase App (always required) -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<!-- Firestore SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+<!-- Your custom script as a module -->
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+    const firebaseConfig = {
+        apiKey: "AIzaSyDtRH4i47l7rykIOaqozaR-QPL1kXyTh3A",
+        authDomain: "thirdofnight-cbbdb.firebaseapp.com",
+        projectId: "thirdofnight-cbbdb",
+        storageBucket: "thirdofnight-cbbdb.firebasestorage.app",
+        messagingSenderId: "315352803781",
+        appId: "1:315352803781:web:6416488ca959726c3683ac",
+        measurementId: "G-WXJX9Q93YK"
+    };
 
-        async function login(masjidName, username, password) {
-            const portalRef = db.collection('portal');
-            const masjidDoc = await portalRef.doc(masjidName).get();
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-            if (masjidDoc.exists()) {
-                const adminData = masjidDoc.data();
-                if (adminData.admin_user === username && adminData.admin_pass === password) {
-                    console.log("Login Successful");
-                    window.location.href = 'prayerTimes.html'; // Redirect to prayerTimes.html on successful login
-                } else {
-                    console.log("Invalid username or password");
-                    alert("Invalid username or password");
-                }
+    async function login(masjidName, username, password) {
+        const portalRef = db.collection('portal');
+        const masjidDocRef = doc(portalRef, masjidName);
+        const masjidDoc = await getDoc(masjidDocRef);
+
+        if (masjidDoc.exists()) {
+            const adminData = masjidDoc.data();
+            if (adminData.admin_user === username && adminData.admin_pass === password) {
+                console.log("Login Successful");
+                window.location.href = 'prayerTimes.html';
             } else {
-                console.log("No such masjid registered!");
-                alert("No such masjid registered!");
+                console.log("Invalid username or password");
+                alert("Invalid username or password");
             }
+        } else {
+            console.log("No such masjid registered!");
+            alert("No such masjid registered!");
         }
+    }
 
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const masjidName = document.getElementById('masjid-name').value;
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            login(masjidName, username, password);
-        });
-    </script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const masjidName = document.getElementById('masjid-name').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        login(masjidName, username, password);
+    });
+</script>
+
 </head>
 <body>
     <div class="login-container">
