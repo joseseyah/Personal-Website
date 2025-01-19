@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #0A1B3D; /* Dark blue background */
+  color: #FDF3E7; /* Light text color */
+}
+
+.prayer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.prayer-card {
+  background-color: #1C2A49; /* Card background */
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.masjid-name {
+  font-size: 28px;
+  color: #FF9D66; /* Highlighted masjid name */
+  margin-bottom: 10px;
+}
+
+.prayer-date {
+  font-size: 20px;
+  color: #FFB347; /* Secondary highlight for date */
+  margin-bottom: 20px;
+}
+
+.prayer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.prayer-item {
+  background-color: #0A1B3D; /* Box background */
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #FF9D66; /* Highlighted border */
+}
+
+.prayer-label {
+  display: block;
+  font-weight: bold;
+  color: #FDF3E7; /* Text color for label */
+  margin-bottom: 5px;
+}
+
+.prayer-time {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FF9D66; /* Highlighted time */
+}
+
+.prayer-actions {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #FF9D66;
+  border: none;
+  border-radius: 8px;
+  color: #0A1B3D;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #FFB347;
+}
