@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Portal</title>
+    <link rel="stylesheet" href="portal.css">
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <!-- Add Firestore SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+    <!-- Your custom script as a module -->
+    <script type="module">
+        // Import Firebase services
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+        import { getFirestore, collection, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyDtRH4i47l7rykIOaqozaR-QPL1kXyTh3A",
+            authDomain: "thirdofnight-cbbdb.firebaseapp.com",
+            projectId: "thirdofnight-cbbdb",
+            storageBucket: "thirdofnight-cbbdb.firebasestorage.app",
+            messagingSenderId: "315352803781",
+            appId: "1:315352803781:web:6416488ca959726c3683ac",
+            measurementId: "G-WXJX9Q93YK"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        async function login(masjidName, username, password) {
+            const portalRef = collection(db, 'portal'); // Use collection function
+            const masjidDocRef = doc(portalRef, masjidName);
+            const masjidDoc = await getDoc(masjidDocRef);
+    
+            if (masjidDoc.exists()) {
+                const adminData = masjidDoc.data();
+                if (adminData.admin_user === username && adminData.admin_pass === password) {
+                    console.log("Login Successful");
+                    window.location.href = 'prayerTimes.html';
+                } else {
+                    console.error("Invalid username or password");
+                    alert("Invalid username or password");
+                }
+            } else {
+                console.error("No such masjid registered!");
+                alert("No such masjid registered!");
+            }
+        }
+    
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const masjidName = document.getElementById('masjid-name').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            login(masjidName, username, password);
+        });
+    </script>
+
+
+
+</head>
+<body>
+    <div class="login-container">
+        <form id="login-form" class="login-form">
+            <h2>Login to Access Portal</h2>
+            <div class="input-group">
+                <input type="text" id="masjid-name" placeholder="Masjid Name" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+</body>
+</html>
