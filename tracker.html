@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Tracker - Privacy & Support</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #FDF3E7;
+            color: black;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border: 4px solid black;
+            box-shadow: 8px 8px black;
+        }
+        h1, h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 10px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .pixel-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #FF9D66;
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border: 4px solid black;
+            box-shadow: 4px 4px black;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .pixel-button:hover {
+            background: #E88B50;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid black;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ramadan Tracker</h1>
+        <p>A simple, privacy-focused Ramadan fasting tracker with prayer times.</p>
+    </div>
+
+    <div class="container">
+        <h2>Privacy Policy</h2>
+        <p>This app does not collect personal data. All information remains on your device.</p>
+    </div>
+
+    <div class="container">
+        <h2>Support</h2>
+        <p>Have a question or issue? Send us an email:</p>
+        <form action="mailto:support@ramadantracker.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="pixel-button">Send</button>
+        </form>
+    </div>
+</body>
+</html>
