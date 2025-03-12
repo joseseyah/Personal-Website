@@ -1,124 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography - Fujifilm Recipes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-        .photo-card {
-            background: white;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .photo-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .recipe {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #555;
-            text-align: left;
-            padding: 10px;
-        }
-        .recipe h3 {
-            margin: 0;
-            font-size: 16px;
-            color: #333;
-        }
-        .recipe ul {
-            list-style: none;
-            padding: 0;
-        }
-        .recipe ul li {
-            font-size: 14px;
-            color: #666;
-        }
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Photography - Fujifilm Recipes</title>
+  <!-- Import Google Fonts for modern and vintage styles -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Playfair+Display:400,700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f4ef; /* vintage paper tone */
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #4a4a4a;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    /* Gallery Styling */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .photo-card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    }
+    .photo-card img {
+      width: 100%;
+      border-radius: 8px;
+      filter: contrast(1.1) brightness(0.98);
+    }
+    /* Vintage Pattern Overlay */
+    .photo-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+      background-size: 50px 50px;
+      opacity: 0.3;
+    }
+    /* Recipe Styling */
+    .recipe {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      text-align: left;
+      background: #fefcf9;
+      padding: 15px;
+      border-left: 4px solid #c9a66b;
+      border-radius: 4px;
+    }
+    .recipe h3 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #4a4a4a;
+    }
+    .recipe ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+    }
+    .recipe ul li {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>My Photography - Fujifilm Recipes</h1>
-        <div class="gallery">
-            <div class="photo-card">
-                <img src="photo1.jpg" alt="Photo 1">
-                <div class="recipe">
-                    <h3>Fujifilm Recipe: Classic Chrome</h3>
-                    <ul>
-                        <li>Film Simulation: Classic Chrome</li>
-                        <li>Dynamic Range: DR200</li>
-                        <li>Highlight: -1</li>
-                        <li>Shadow: +1</li>
-                        <li>Color: +2</li>
-                        <li>Noise Reduction: -4</li>
-                        <li>Sharpening: +2</li>
-                        <li>Grain Effect: Weak</li>
-                        <li>WB Shift: R+2, B-1</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="photo-card">
-                <img src="photo2.jpg" alt="Photo 2">
-                <div class="recipe">
-                    <h3>Fujifilm Recipe: Eterna Bleach Bypass</h3>
-                    <ul>
-                        <li>Film Simulation: Eterna</li>
-                        <li>Dynamic Range: DR400</li>
-                        <li>Highlight: 0</li>
-                        <li>Shadow: -2</li>
-                        <li>Color: -4</li>
-                        <li>Noise Reduction: -4</li>
-                        <li>Sharpening: +1</li>
-                        <li>Grain Effect: Strong</li>
-                        <li>WB Shift: R+1, B-3</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="photo-card">
-                <img src="photo3.jpg" alt="Photo 3">
-                <div class="recipe">
-                    <h3>Fujifilm Recipe: Acros Monochrome</h3>
-                    <ul>
-                        <li>Film Simulation: Acros</li>
-                        <li>Dynamic Range: DR100</li>
-                        <li>Highlight: +2</li>
-                        <li>Shadow: +3</li>
-                        <li>Noise Reduction: -4</li>
-                        <li>Sharpening: +3</li>
-                        <li>Grain Effect: Strong</li>
-                        <li>WB Shift: R0, B0</li>
-                    </ul>
-                </div>
-            </div>
+  <div class="container">
+    <h1>My Photography - Fujifilm Recipes</h1>
+    <div class="gallery">
+      <div class="photo-card">
+        <img src="photo1.jpg" alt="Photo 1">
+        <div class="recipe">
+          <h3>Fujifilm Recipe: Classic Chrome</h3>
+          <ul>
+            <li>Film Simulation: Classic Chrome</li>
+            <li>Dynamic Range: DR200</li>
+            <li>Highlight: -1</li>
+            <li>Shadow: +1</li>
+            <li>Color: +2</li>
+            <li>Noise Reduction: -4</li>
+            <li>Sharpening: +2</li>
+            <li>Grain Effect: Weak</li>
+            <li>WB Shift: R+2, B-1</li>
+          </ul>
         </div>
+      </div>
+      <div class="photo-card">
+        <img src="photo2.jpg" alt="Photo 2">
+        <div class="recipe">
+          <h3>Fujifilm Recipe: Eterna Bleach Bypass</h3>
+          <ul>
+            <li>Film Simulation: Eterna</li>
+            <li>Dynamic Range: DR400</li>
+            <li>Highlight: 0</li>
+            <li>Shadow: -2</li>
+            <li>Color: -4</li>
+            <li>Noise Reduction: -4</li>
+            <li>Sharpening: +1</li>
+            <li>Grain Effect: Strong</li>
+            <li>WB Shift: R+1, B-3</li>
+          </ul>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photo3.jpg" alt="Photo 3">
+        <div class="recipe">
+          <h3>Fujifilm Recipe: Acros Monochrome</h3>
+          <ul>
+            <li>Film Simulation: Acros</li>
+            <li>Dynamic Range: DR100</li>
+            <li>Highlight: +2</li>
+            <li>Shadow: +3</li>
+            <li>Noise Reduction: -4</li>
+            <li>Sharpening: +3</li>
+            <li>Grain Effect: Strong</li>
+            <li>WB Shift: R0, B0</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 </html>
