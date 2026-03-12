@@ -1,0 +1,132 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: var(--transition);
+}
+
+.navbar--scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.navbar__logo-accent {
+  color: var(--accent);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 32px;
+}
+
+.navbar__links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  position: relative;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+.navbar__links a:hover {
+  color: var(--text-primary);
+}
+
+.navbar__links a:hover::after {
+  width: 100%;
+}
+
+.navbar__link--highlight {
+  background: linear-gradient(135deg, #0c2d1b, #0d2a3a);
+  padding: 6px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(34, 197, 94, 0.3) !important;
+  color: var(--accent) !important;
+}
+
+.navbar__link--highlight::after {
+  display: none !important;
+}
+
+.navbar__link--highlight:hover {
+  background: linear-gradient(135deg, #0f3a22, #103550);
+  border-color: rgba(34, 197, 94, 0.5) !important;
+}
+
+.navbar__cta {
+  padding: 10px 24px;
+  font-size: 0.85rem;
+}
+
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar__links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+  }
+
+  .navbar__links--open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .navbar__links a {
+    font-size: 1.5rem;
+  }
+
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: block;
+    z-index: 1001;
+  }
+}
