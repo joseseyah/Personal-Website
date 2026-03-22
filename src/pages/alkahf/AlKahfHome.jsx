@@ -1,10 +1,10 @@
 import AlKahfLayout from './AlKahfLayout'
-import homeImg from '/Kahfassets/home.png'
+import homeFridayImg from '/Kahfassets/home-friday.png'
 import caveImg from '/Kahfassets/cave.png'
-import listenImg from '/Kahfassets/listen.png'
-import sadaqahImg from '/Kahfassets/sadaqah.png'
+import qiblaImg from '/Kahfassets/qibla.png'
 import readImg from '/Kahfassets/read.png'
-import globalImg from '/Kahfassets/global.png'
+import sadaqahImg from '/Kahfassets/sadaqah.png'
+import checklistImg from '/Kahfassets/checklist.png'
 
 function AlKahfHome() {
   return (
@@ -12,15 +12,16 @@ function AlKahfHome() {
       {/* Hero */}
       <section className="ak-hero">
         <div className="ak-container">
-          <div className="ak-hero__badge">✨ Available exclusively on iOS</div>
+          <div className="ak-hero__badge">🍉 Available exclusively on iOS</div>
           <h1 className="ak-hero__title">
             Your Companion{' '}
             <br />
-            for <span className="ak-hero__friday">Friday</span>.
+            for <span className="ak-hero__friday">Friday</span>.<span className="ak-hero__watermelon">🍉</span>
           </h1>
           <p className="ak-hero__desc">
-            Track prayer times, listen to beautiful recitations of Surah Al-Kahf,
-            and give Sadaqah seamlessly with our beautifully crafted app.
+            Prayer times, Qibla direction, Surah Al-Kahf reading, Golden Hour
+            countdown, Sadaqah, and a Jummah checklist — all in one beautifully
+            crafted app with a fresh watermelon theme.
           </p>
           <div className="ak-hero__actions">
             <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="ak-btn ak-btn--primary">
@@ -36,28 +37,29 @@ function AlKahfHome() {
         </div>
       </section>
 
-      {/* Feature 1: Home / Prayer Times */}
+      {/* Feature 1: Home / Friday View */}
       <section id="feature-home" className="ak-showcase">
         <div className="ak-container ak-showcase__inner">
           <div className="ak-showcase__phone">
             <div className="ak-phone ak-phone--lg">
               <div className="ak-phone__notch" />
-              <img src={homeImg} alt="Home screen" className="ak-phone__screen" />
+              <img src={homeFridayImg} alt="Home screen on Friday" className="ak-phone__screen" />
             </div>
           </div>
           <div className="ak-showcase__text">
-            <div className="ak-section-label">🕌 Prayer Times</div>
-            <h2 className="ak-section-title">Your daily salah companion</h2>
+            <div className="ak-section-label">🕌 Home</div>
+            <h2 className="ak-section-title">Your Friday at a glance</h2>
             <p className="ak-showcase__desc">
-              Accurate prayer times for your location with a live countdown to the
-              next salah. See the current and upcoming prayer at a glance, track
-              Hijri dates, and never miss a prayer again.
+              Open the app on Friday and see everything you need — a hadith
+              reminder about reading Surah Al-Kahf, a live countdown to the next
+              prayer, your Sunnah habits, and quick access to Surah Al-Kahf
+              reading with progress tracking.
             </p>
             <ul className="ak-showcase__list">
-              <li>Live countdown to next prayer</li>
-              <li>Sunrise, Islamic Midnight & Last Third of the Night</li>
-              <li>Hijri calendar date display</li>
-              <li>Location-based accuracy</li>
+              <li>Friday Reminder with hadith from the Prophet ﷺ</li>
+              <li>Live countdown to next salah</li>
+              <li>Surah Al-Kahf card with progress tracking</li>
+              <li>Sunnah Habits — build consistency daily</li>
             </ul>
           </div>
         </div>
@@ -73,45 +75,46 @@ function AlKahfHome() {
             </div>
           </div>
           <div className="ak-showcase__text">
-            <div className="ak-section-label">⏰ Friday Golden Hour</div>
-            <h2 className="ak-section-title">Catch the blessed hour</h2>
+            <div className="ak-section-label">⏰ The Cave</div>
+            <h2 className="ak-section-title">Golden Hour &amp; Night Times</h2>
             <p className="ak-showcase__desc">
-              A live countdown timer to the special hour on Friday between Asr and
-              Maghrib — a time when du'as are especially accepted. Never miss this
-              blessed window again.
+              A dedicated Friday page with a live countdown to the Golden Hour —
+              the blessed window before Maghrib when du'as are accepted. Plus
+              Du'a of the Day from Surah Al-Kahf, and full Night Times including
+              Sunrise, Islamic Midnight, and Last Third.
             </p>
             <ul className="ak-showcase__list">
-              <li>Live countdown to the Golden Hour</li>
-              <li>Start and Maghrib times displayed</li>
-              <li>Today & tomorrow's key times</li>
-              <li>The Cave — الكهف — themed interface</li>
+              <li>Golden Hour countdown with start &amp; Maghrib times</li>
+              <li>Du'a of the Day — Al-Kahf 18:10</li>
+              <li>Night Times — Sunrise, Islamic Midnight, Last Third</li>
+              <li>Hijri date display — 🍉 themed interface</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Feature 3: Listen */}
+      {/* Feature 3: Qibla */}
       <section className="ak-showcase">
         <div className="ak-container ak-showcase__inner">
           <div className="ak-showcase__phone">
             <div className="ak-phone ak-phone--lg">
               <div className="ak-phone__notch" />
-              <img src={listenImg} alt="Listen screen" className="ak-phone__screen" />
+              <img src={qiblaImg} alt="Qibla compass screen" className="ak-phone__screen" />
             </div>
           </div>
           <div className="ak-showcase__text">
-            <div className="ak-section-label">🎧 Listen</div>
-            <h2 className="ak-section-title">Beautiful recitations of Surah Al-Kahf</h2>
+            <div className="ak-section-label">🧭 Qibla</div>
+            <h2 className="ak-section-title">Find the direction to Makkah</h2>
             <p className="ak-showcase__desc">
-              Listen to the full recitation of Surah Al-Kahf by world-renowned
-              reciters including Mishary Rashid Alafasy. Play, pause, skip, and
-              immerse yourself in the words of Allah.
+              A stunning watermelon-themed compass that points you to the Kaaba
+              no matter where you are. See your precise bearing, distance in km,
+              and get real-time directional guidance.
             </p>
             <ul className="ak-showcase__list">
-              <li>Full Surah Al-Kahf audio</li>
-              <li>Reciter: Mishary Rashid Alafasy &amp; more</li>
-              <li>Skip forward/back 15 seconds</li>
-              <li>Beautiful now-playing interface</li>
+              <li>Beautiful watermelon-themed compass design</li>
+              <li>Real-time direction with degree indicator</li>
+              <li>Distance to the Kaaba in km</li>
+              <li>Turn guidance — "Turn right · 118°"</li>
             </ul>
           </div>
         </div>
@@ -128,17 +131,17 @@ function AlKahfHome() {
           </div>
           <div className="ak-showcase__text">
             <div className="ak-section-label">📖 Read</div>
-            <h2 className="ak-section-title">Read Surah Al-Kahf every Friday</h2>
+            <h2 className="ak-section-title">Read Surah Al-Kahf &amp; Al-Mulk</h2>
             <p className="ak-showcase__desc">
-              Read the full Surah Al-Kahf directly in the app with a clean,
-              distraction-free reading experience. Follow along at your own pace
-              and build a consistent Friday reading habit.
+              Verse-by-verse reading with beautiful Arabic typography and English
+              translations side by side. Adjust font size, track your progress,
+              and build a consistent reading habit for both Friday and nightly surahs.
             </p>
             <ul className="ak-showcase__list">
-              <li>Full Surah Al-Kahf text</li>
-              <li>Clean, easy-to-read Arabic typography</li>
-              <li>Scroll at your own pace</li>
-              <li>Build your weekly Jumu'ah reading habit</li>
+              <li>Surah Al-Kahf (Friday) &amp; Al-Mulk (Nightly)</li>
+              <li>Arabic text with English translation</li>
+              <li>Adjustable font size — 28pt and beyond</li>
+              <li>Verse counter and progress tracking</li>
             </ul>
           </div>
         </div>
@@ -155,44 +158,44 @@ function AlKahfHome() {
           </div>
           <div className="ak-showcase__text">
             <div className="ak-section-label">💚 Sadaqah</div>
-            <h2 className="ak-section-title">100% of donations go to charity</h2>
+            <h2 className="ak-section-title">Kahf takes zero fees</h2>
             <p className="ak-showcase__desc">
-              Choose from meaningful causes and donate with complete confidence.
-              Zero admin fees, zero overhead — every single penny reaches those
-              in need. Track your impact and watch your contributions grow.
+              100% of your donation reaches those in need. We only ask you to
+              cover external processing fees. Choose from meaningful causes and
+              give with complete confidence — صدقة جارية.
             </p>
             <ul className="ak-showcase__list">
-              <li>Feed the Hungry — provide meals to families</li>
-              <li>Clean Water — build wells for communities</li>
-              <li>Orphan Support — sponsor education &amp; shelter</li>
-              <li>Masjid Building — help mosques worldwide</li>
+              <li>Feed the Hungry — meals for families in need</li>
+              <li>Clean Water — wells for communities</li>
+              <li>Orphan Support — education, food &amp; shelter</li>
+              <li>Masjid Building — mosques around the world</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Feature 6: Global */}
+      {/* Feature 6: Jummah Checklist */}
       <section className="ak-showcase ak-showcase--alt">
         <div className="ak-container ak-showcase__inner ak-showcase__inner--reverse">
           <div className="ak-showcase__phone">
             <div className="ak-phone ak-phone--lg">
               <div className="ak-phone__notch" />
-              <img src={globalImg} alt="Global donations screen" className="ak-phone__screen" />
+              <img src={checklistImg} alt="Jummah Checklist" className="ak-phone__screen" />
             </div>
           </div>
           <div className="ak-showcase__text">
-            <div className="ak-section-label">🌍 Global Sadaqah</div>
-            <h2 className="ak-section-title">Muslims giving around the world</h2>
+            <div className="ak-section-label">✅ Jummah Checklist</div>
+            <h2 className="ak-section-title">Never miss a Friday Sunnah</h2>
             <p className="ak-showcase__desc">
-              See real-time donations pouring in from cities across the globe on
-              blessed Jumu'ah. From Kuala Lumpur to Istanbul, Jakarta to
-              Birmingham — the ummah giving together.
+              A beautiful checklist of recommended Friday actions from the Sunnah.
+              Tick them off as you go and make the most of the blessed day of
+              Jumu'ah every single week.
             </p>
             <ul className="ak-showcase__list">
-              <li>Live donation totals from around the world</li>
-              <li>City-by-city breakdown with flags</li>
-              <li>Total raised, donors, and cities count</li>
-              <li>Feel the unity of the global ummah</li>
+              <li>Read Surah Al-Kahf</li>
+              <li>Take a shower</li>
+              <li>Make du'a in the Golden Hour</li>
+              <li>Send salawat on the Prophet ﷺ</li>
             </ul>
           </div>
         </div>
@@ -221,10 +224,10 @@ function AlKahfHome() {
       {/* CTA */}
       <section className="ak-cta">
         <div className="ak-container">
-          <h2 className="ak-cta__title">Start Your Friday Right</h2>
+          <h2 className="ak-cta__title">Start Your Friday Right 🍉</h2>
           <p className="ak-cta__desc">
-            Download Al-Kahf today — completely free. Read, listen, donate, and
-            earn the reward every Jumu'ah.
+            Download Al-Kahf today — completely free. Read, give, find Qibla,
+            and earn the reward every Jumu'ah.
           </p>
           <div className="ak-cta__buttons">
             <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="ak-btn ak-btn--dark">

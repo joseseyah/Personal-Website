@@ -2,18 +2,19 @@
 
 :root {
   --ak-cream: #FDF5E6;
-  --ak-cream-dark: #F5E6C8;
-  --ak-brown: #2D1F14;
-  --ak-brown-light: #3D2E1F;
-  --ak-brown-card: #4A3728;
-  --ak-gold: #D4A843;
-  --ak-gold-light: #E8C96A;
-  --ak-gold-dark: #B8912E;
+  --ak-cream-dark: #F0E4CE;
+  --ak-brown: #1B4332;
+  --ak-brown-light: #2D5A3F;
+  --ak-brown-card: #3A6B4E;
+  --ak-gold: #E85D5D;
+  --ak-gold-light: #F0807A;
+  --ak-gold-dark: #C94440;
   --ak-orange: #E8793A;
-  --ak-green: #2D6B4A;
+  --ak-green: #1B4332;
   --ak-green-light: #E8F5E9;
-  --ak-red: #C0392B;
+  --ak-red: #E85D5D;
   --ak-blue: #5B8DEF;
+  --ak-pink-light: #FADADD;
   --ak-border: 3px solid var(--ak-brown);
   --ak-border-thin: 2px solid var(--ak-brown);
   --ak-shadow: 6px 6px 0px var(--ak-brown);
@@ -211,9 +212,15 @@
 .ak-hero__friday {
   color: var(--ak-gold);
   text-decoration: underline;
-  text-decoration-color: var(--ak-gold-dark);
+  text-decoration-color: var(--ak-gold);
   text-underline-offset: 8px;
   text-decoration-thickness: 4px;
+}
+
+.ak-hero__watermelon {
+  font-size: 0.6em;
+  vertical-align: middle;
+  margin-left: 4px;
 }
 
 .ak-hero__desc {
